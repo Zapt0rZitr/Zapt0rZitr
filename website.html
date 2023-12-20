@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDROW</title>
+    <link rel="icon" href="Titleimageforebsite_20231219112026.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+
+        header {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+
+        nav {
+            background-color: #444;
+            overflow: hidden;
+            display: none; /* Initially hide the navigation menu */
+        }
+
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+
+        nav a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+
+        button {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        button:hover {
+            background-color: #555;
+        }
+
+
+        section {
+            text-align: center;
+            padding: 50px;
+        }
+
+
+        section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+
+        section p {
+            font-size: 18px;
+            color: #333;
+        }
+
+
+        #aboutSection img {
+            max-width: 30%;
+        }
+
+
+        #contactSection {
+            display: none;
+        }
+
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+
+        form button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        form button:hover {
+            background-color: #555;
+        }
+
+
+        .settings-content {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+
+        .settings-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <h1>The Doris Religion Official Website</h1>
+    </header>
+
+
+    <button onclick="toggleMenu()">Menu</button>
+
+
+    <nav id="mainMenu">
+        <a href="#" onclick="showHome()">Home</a>
+        <a href="#" onclick="showAbout()">About</a>
+        <a href="#" onclick="showContact()">Contact</a>
+        <a href="#" onclick="showRules()">Rules</a>
+        <a href="#" onclick="showSettings()">Settings</a>
+    </nav>
+
+
+    <section id="homeSection">
+        <img src="Untitled15_20231219173800.png" alt="Home Image">
+        <h2>Welcome to the official Doris Religion website!</h2>
+        <p>This website explains how YOU can become a member of the Doris Religion.</p>
+    </section>
+
+
+    <section id="aboutSection" style="display: none;">
+        <img src="TheHolyDorisSymbol_20231219175552.png" alt="The Holy Doris Symbol">
+        <h2>About the Doris Religion</h2>
+        <p>Learn more about the history and principles of the Doris Religion.</p>
+    </section>
+
+
+    <section id="contactSection" style="display: none;">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="suggestion">Do you have any suggestion on what to add?</label>
+            <textarea id="suggestion" name="suggestion" rows="4" required></textarea>
+
+
+            <p>Provide your email below if you want to be contacted:</p>
+            <label for="contactEmail">Your Email:</label>
+            <input type="email" id="contactEmail" name="contactEmail">
+
+
+            <button type="button">Send Message</button>
+        </form>
+    </section>
+
+
+    <section id="rulesSection" style="display: none;">
+        <h2>Rules of the Doris Religion</h2>
+        <p>Here are the sacred rules that members of the Doris Religion must follow...</p>
+    </section>
+
+
+    <section id="settingsSection" style="display: none;">
+        <h2>Settings</h2>
+        <div class="settings-content">
+            <div class="settings-item">
+                <label for="language">Language:</label>
+                <select id="language">
+                    <option value="english">English</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="french">French</option>
+                </select>
+            </div>
+
+
+            <div class="settings-item">
+                <label for="darkMode">Dark Mode:</label>
+                <input type="checkbox" id="darkMode">
+            </div>
+
+
+            <div class="settings-item">
+                <label for="audioVolume">Audio Volume:</label>
+                <input type="range" id="audioVolume" min="0" max="100" value="50">
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2023 Doris Religion. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mainMenu");
+            if (menu.style.display === "block" || menu.style.display === "") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+
+        function showHome() {
+            hideAllSections();
+            document.getElementById("homeSection").style.display = "block";
+        }
+
+
+        function showAbout() {
+            hideAllSections();
+            document.getElementById("aboutSection").style.display = "block";
+        }
+
+
+        function showContact() {
+            hideAllSections();
+            document.getElementById("contactSection").style.display = "block";
+        }
+
+
+        function showRules() {
+            hideAllSections();
+            document.getElementById("rulesSection").style.display = "block";
+        }
+
+
+        function showSettings() {
+            hideAllSections();
+            document.getElementById("settingsSection").style.display = "block";
+        }
+
+
+        function hideAllSections() {
+            var sections = document.querySelectorAll("section");
+            sections.forEach(function(section) {
+                section.style.display = "none";
+            });
+        }
+    </script>
+</body>
+</html>
